@@ -1,0 +1,110 @@
+<br /><br />
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-10 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <h2 class="font-weight-bolder text-success"><br /><br /> &nbsp; &nbsp; <br> Sign Up &nbsp; &nbsp; </h2>
+        <form (ngSubmit)="registeruser(us)" #us="ngForm" class="needs-validation" validate>
+          <div class="form-row">
+            <div class="col-md-6 mb-2">
+              <label for="validationServer01">First name</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend3"><i class="fas fa-file-signature"></i></span>
+                </div>
+                <input type="text" name="FirstName"
+                [ngClass]="(FirstName.dirty || FirstName.touched) && FirstName.invalid ?'form-control is-invalid':'form-control'"
+                  id="validationServer01" placeholder="First Name"
+                  aria-describedby="inputGroupPrepend3" [(ngModel)]="model.FirstName" #FirstName="ngModel" required>
+                <div class="invalid-tooltip error" *ngIf="(FirstName.dirty || FirstName.touched) && FirstName.invalid">
+                  First Name is Required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="validationServer02">Last Name</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend3"><i class="fas fa-file-signature"></i></span>
+                </div>
+                <input name="LastName" type="text"
+                  [ngClass]="(LastName.dirty || LastName.touched) && LastName.invalid ?'form-control is-invalid':'form-control'"
+                  id="lastName" placeholder="Last Name" aria-describedby="inputGroupPrepend3"
+                  [(ngModel)]="model.LastName" #LastName="ngModel" required>
+                <div class="invalid-tooltip error" *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)">
+                  <div *ngIf="LastName?.errors.required">Last Name is Required.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6 mb-2">
+              <label for="validationServerUsername">Email</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend3"><i
+                      class="fas fa-envelope-open-text"></i></span>
+                </div>
+                <input type="text"
+                  [ngClass]="(Email.dirty || Email.touched) && Email.invalid ?'form-control is-invalid':'form-control '"
+                  id="email" name="Email" placeholder="Email" aria-describedby="inputGroupPrepend3"
+                  [(ngModel)]="model.Email" #Email="ngModel" required>
+                <div class="invalid-tooltip error" *ngIf="Email.invalid && (Email.dirty || Email.touched)">
+                  <div *ngIf="Email?.errors.required">Email is required.</div>
+                  <div *ngIf="Email?.errors.email">Email must be a valid email address.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="validationServerUsername">Password</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Password"><i class="fas fa-lock"></i></span>
+                </div>
+                <input type="password" name="Password"
+                  [ngClass]="(Password.dirty || Password.touched) && Password.invalid ?'form-control is-invalid':'form-control'"
+                  id="Password" placeholder="Password" aria-describedby="inputGroupPrepend3"
+                  [(ngModel)]="model.Password" #Password="ngModel" required>
+
+                <div class="invalid-tooltip error" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
+                  <div *ngIf="Password?.errors.required">Password is required.</div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-6 mb-2">
+              <label for="validationServerUsername">Mobile</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Mobile"><i class="fas fa-phone-alt"></i></span>
+                </div>
+                <input type="text" name="Mobile"
+                  [ngClass]="(Mobile.dirty || Mobile.touched) && Mobile.invalid ?'form-control is-invalid':'form-control '"
+                  id="Mobile" placeholder="Mobile" aria-describedby="inputGroupPrepend3" [(ngModel)]="model.Mobile"
+                  #Mobile="ngModel" required>
+              </div>
+            </div>
+            <div class="col-md-6 mb-2">
+              <label for="validationServerUsername">Gender</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="Gender"><i class="fas fa-venus-double"></i></span>
+                </div>
+                <input type="text" name="Gender"
+                  [ngClass]="(Gender.dirty || Gender.touched) && Gender.invalid ?'form-control is-invalid':'form-control'"
+                  id="Gender" placeholder="Gender" aria-describedby="inputGroupPrepend3" [(ngModel)]="model.Gender"
+                  #Gender="ngModel" required>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

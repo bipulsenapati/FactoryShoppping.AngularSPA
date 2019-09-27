@@ -1,0 +1,126 @@
+<!-- As a link -->
+<div id="main">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top  ">
+    <div class="container-fluid">
+      <button
+        type="button"
+        id="sidebarCollapse"
+        (click)="toggle(this)"
+        class="navbar-btn"
+        [class.active]="!classApplied"
+      >
+        <span class="navbar-toggler-icon"></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <a class="navbar-brand" href="#"> &nbsp; vela engineer</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span></button
+      ><br />
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <form class="form-inline my-2 my-lg-0 ">
+            <input
+              class="form-control mr-sm-1"
+              type="search"
+              placeholder="Search from vela engineers factory .  .  ."
+              aria-label="Search"
+              size="55"
+            />
+            <button class="btn btn-outline-primary my-2 my-sm-3" type="submit">
+              Search
+            </button>
+          </form>
+        </ul>
+
+        <ul class=" nav nav-pills mr-1 offset-md-3 ">
+          <li class="nav-item">
+            <a
+              *ngIf="!_user.isAuthenticated()"
+              class="nav-link"
+              [routerLink]="['/login']"
+              routerLinkActive="router-link-active"
+              >Sign In</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              *ngIf="!_user.isAuthenticated()"
+              class="nav-link active"
+              [routerLink]="['/register']"
+              routerLinkActive="router-link-active"
+              >Sign Up</a
+            >
+          </li>
+          <li>
+            <i
+              *ngIf="!!_user.isAuthenticated()"
+              class="fa fa-shopping-cart"
+              aria-hidden="true"
+              [routerLink]="['/addtocart']"
+              routerLinkActive="router-link-active"
+            ></i>
+          </li>
+          <li class="nav-item">
+            <a
+              href="#tab1"
+              *ngIf="!!_user.isAuthenticated()"
+              [routerLink]="['login']"
+              (click)="signout()"
+              routerLinkActive="router-link-active"
+            >
+              SignOut</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <br /><br /><br /><br />
+  <router-outlet></router-outlet>
+</div>
+
+<nav class="sidebar" [class.active]="classApplied" id="mySidebar">
+  <br />
+  <br />
+  <br />
+  <div class="sidebar-header">
+    <a><h3>Engineer Choice</h3></a>
+  </div>
+  <ul class="list-unstyled components">
+    <li>
+      <a [routerLink]="['/userdetails']" routerLinkActive="router-link-active"
+        >My Profile</a
+      >
+    </li>
+  </ul>
+  <ul
+    *ngFor="let c of categoryList"
+    class="list-unstyled components"
+    [routerLink]="['/product', c.categoryId]"
+    routerLinkActive="router-link-active"
+  >
+    <li>
+      <a>{{ c.categoryName }}</a>
+    </li>
+  </ul>
+  <ul class="list-unstyled components">
+    <li>
+      <a>My Orders</a>
+    </li>
+    <br />
+    <li>
+      <a>Wishlist</a>
+    </li>
+  </ul>
+</nav>

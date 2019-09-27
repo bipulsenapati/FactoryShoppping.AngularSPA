@@ -1,0 +1,28 @@
+<div class="container"><br/><br/><br/><br/>
+    <div class="row">
+    <div>
+      <div class="card mb-12 " style="max-width: 990px;" allign="center">
+        <div class="row no-gutters" *ngIf="product">
+         <div class="col-md-4">
+            <img src = '{{product.imagePath}}' class="card-img" alt="Product large image">
+         </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title"> {{product.name}}</h2>
+                 <p><strong><h2>&#8377; {{product.price}}</h2></strong></p>
+                 <p class="card-text">{{product.description}}</p>
+                   <div class="btn btn-group-lg" >
+                      <!-- aria-label="Toolbar with button groups" -->
+                      <!-- <button mat-button type="button" (click)="openSnackBar('Party', 'act')" class="btn btn-outline-info">Add to Bag</button>&nbsp; -->
+                      <button mat-button (click)="openSnackBar('Party', 'act')">Show snack-bar</button>
+                      <button type="button" class="btn btn-outline-info">Wishlist</button>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+

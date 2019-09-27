@@ -1,0 +1,92 @@
+
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/bg.jpg"  height="520px" width="1320px" alt="Product1">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/bg-2.jpg"  height="520px" width="1320px" alt="Product">
+      </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+
+  </div>
+
+
+<div class="container">
+  <h3 class="font-weight-bold ">Trending Products</h3>
+  <button
+    *ngIf="onAdminAccess()"
+    type="submit"
+    class="btn btn-outline-success"
+    (click)='redirectToProduct()'
+  ><i class="fa fa-plus" aria-hidden="true"></i></button
+  ><br /><br />
+
+  <div class="row col-md-12">
+    <div *ngFor="let prod of products" class="col-md-3">
+      <div class="card card-panel hoverable" style="width: 18rem;">
+        <img
+          class="img-square-wrapper mx-auto d-block"
+          src="{{ prod.imagePath }}"
+          alt="ProductImage"
+          style="height: 200px; width: 200px; object-fit: scale-down"
+        />
+
+        <div class="card-body" id="box">
+          <div class="btn-group mt-1" role="group">
+            <button
+              *ngIf="onAdminAccess()"
+              type="button"
+              class="btn"
+              (click)="oneditProduct(prod)"
+            >
+              <i
+                class="fas fa-edit"
+                style="font-size:18px;color:rgb(3, 117, 224)"
+              ></i>
+            </button>
+            <button
+              *ngIf="onAdminAccess()"
+              class="btn "
+              type="button"
+              (click)="dltbtn.onDelete(prod.pId)"
+            >
+              <i class="fa fa-trash-o" style="font-size:18px;color:red"></i>
+            </button>
+            <app-product-delete
+              [productdata]="!!productdata"
+              #dltbtn
+            ></app-product-delete>
+          </div>
+
+          <h5 class="card-title">
+            <a (click)="onGetDetail(prod.pId)"
+              ><b>{{ prod.name }}</b></a
+            >
+          </h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h5>&#8377;{{ prod.price }}</h5>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

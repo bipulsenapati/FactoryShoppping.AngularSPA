@@ -1,0 +1,98 @@
+<div class="jumbotron">
+  <div class="container">
+    <div class="mb-3 mb-md-0">
+      <span class="h2 font-weight-bolder text-primary">Shopping Cart</span>
+      <button type="button" class="btn btn-outline-danger float-right btn-lg pr-4 pl-4" (click)="onClear()">Clear Cart</button>
+      <p>Grabb it by your own choice . . .</p>
+    </div>
+  </div>
+</div>
+
+<body>
+  <main class="page">
+    <section class="shopping-cart dark">
+      <div class="container" >
+        <div class="content">
+          <div class="row">
+            <div class="col-md-12 col-lg-9 border" *ngIf="!(carts.length > 0)">
+               <div ><h3 class="p-5"><font color="red"><b><i class="fa fa-shopping-bag" aria-hidden="true"></i>&nbsp;Empty-Cart</b> </font></h3></div>
+            </div>
+            <div class="col-md-12 col-lg-9" *ngFor="let cart of carts">
+              <div class="items">
+                <div class="product">
+                  <div class="row">
+                    <div class="col-md-2">
+                      <img
+                        class="img-fluid mx-auto d-block image"
+                        src="{{ cart.productImage }}" width="100px"
+                      />
+                    </div>
+                    <div class="col-md-10">
+                      <div class="info">
+                        <div class="row">
+                          <div class="col-md-4 product-name">
+                            <div class="product-name">
+                              <a href="#">{{ cart.productName }}</a>
+                            </div>
+                          </div>
+
+                          <div class="col-md-2 quantity">
+                            <label for="orderQuantity">Quantity</label> <br>
+                            <input  id="orderQuantity" type="number" min ="1" class="form-control quantity-input" (change)='updateQuantity(cart.cartId, cart.orderQuantity)' name='orderQuantity' [(ngModel)]='cart.orderQuantity'>
+                          </div>
+
+                          <div class="col-md-3 price">
+                              <label for="price"><b>Price</b> </label> <br>
+                           <h4><span> {{cart.price | currency :"₹"}}</span> </h4>
+                          </div>
+
+                          <div class="col-md-2  p-0 tprice">
+                              <label for="tprice"><b>Total Price</b> </label> <br>
+                              <h4><span> {{ cart.amount | currency :"₹" }}</span> </h4>
+                          </div>
+                          <div class="col-md-1 pt-4">
+                              <button type="button" class="btn btn-outline-danger btn-sm" (click)="onDelete(cart.cartId)">
+                                  <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                          </div>
+                        </div><hr>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-3" *ngIf="carts.length > 0">
+              <div class="summary">
+                  <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order Summary </div><hr>
+                <!-- <div class="summary-item"><span class="text">Subtotal</span><span class="price">&#8377;360</span></div>-->
+                   <div class="summary-item" *ngIf="checkout.subTotal < 500">
+                      <div >
+                          <span class="text"><b>Sub Total: &nbsp;</b> </span>
+                          <span class="price">{{checkout.subTotal | currency :"₹"}} </span>
+                      </div>
+                     <div>
+                       <span class="text" ><b>Shipping: &nbsp;</b></span>
+                      <span class="price">{{checkout.shipping | currency :"₹"}}</span>
+                    </div>
+                    <hr>
+                   </div>
+
+                <div class="summary-item">
+                  <span class="text"><b>Cart Total: &nbsp;</b> </span>
+                  <span class="price">{{checkout.cartTotal | currency :"₹"}} </span>
+                </div>
+                <hr>
+                <div>
+                <button type="button" (click)="redirectToCheckout()"  class="btn btn-primary btn-lg rounded-pill py-2 btn-block">
+                  Checkout
+                </button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>

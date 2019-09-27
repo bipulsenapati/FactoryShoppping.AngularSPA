@@ -1,0 +1,29 @@
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  width: 85%;
+  padding-left:6px;
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-img-center {
+  width: 85%;
+  /* Link to your background image using in the property below! */
+  background-image: solid blue;
+  background-size: cover;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}

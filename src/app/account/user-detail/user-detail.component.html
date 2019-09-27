@@ -1,0 +1,120 @@
+
+<div class="container">
+  <div class="row m-y-2">
+      <div class="col-lg-8 push-lg-4">
+          <ul class="nav nav-tabs">
+              <li class="nav-item">
+                  <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+              </li>
+
+              <li class="nav-item">
+                  <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+              </li>
+          </ul>
+          <div class="tab-content p-b-3">
+              <div class="tab-pane active" id="profile">
+                  <div class="row">
+
+                      <div class="col-md-12">
+                          <h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> User Profile</h4>
+                          <table class="table table-hover table-striped" *ngFor= "let us of model">
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                         <b>First Name: &nbsp;{{us.firstName}}</b>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <b>Last Name: &nbsp;{{us.lastName}}</b>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <b>Email:&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {{us.email}}</b>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <b>Password:&nbsp;&nbsp; &nbsp;{{us.password}}</b>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <b>Mobile:&nbsp; &nbsp; &nbsp; &nbsp; {{us.mobile}}</b>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          <b>Gender:&nbsp; &nbsp; &nbsp; &nbsp; {{us.gender}}</b>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+                  <!--/row-->
+              </div>
+
+              <div class="tab-pane" id="edit" >
+                  <h4 class="m-y-2">Edit Profile</h4>
+                  <form role="form" (ngSubmit)="editUserDetails(us)" #us="ngForm" *ngFor="let m of model">
+                      <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                          <div class="col-lg-9">
+                              <input class="form-control" placeholder="First Name"  type="text" id="firstName" name="firstName" [(ngModel)] ="m.firstName">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                          <div class="col-lg-9">
+                              <input class="form-control" placeholder="Last Name"  type="text" id="lastName" name="lastName" [(ngModel)] ="m.lastName">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                          <div class="col-lg-9">
+                              <input class="form-control" placeholder="example_007@example.com"  type="email" id="email" name="email" [(ngModel)] ="m.email">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                          <div class="col-lg-9">
+                              <input class="form-control" type="password"placeholder="Password"  id="password" name="password" [(ngModel)] ="m.password">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label">Mobile</label>
+                          <div class="col-lg-9">
+                              <input class="form-control" type="number" placeholder="Mobile Number"  id="mobile" name="mobile" [(ngModel)] ="m.mobile">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+                          <div class="col-lg-9">
+                              <input class="form-control" type="text" placeholder="Gender" id="gender" name="gender" [(ngModel)] ="m.gender">
+                          </div>
+                      </div>
+                         <div class="form-group row">
+                          <label class="col-lg-3 col-form-label form-control-label"></label>
+                          <div class="col-lg-9">
+                              <input type="reset" class="btn btn-outline-secondary" value="Cancel"> &nbsp;
+                              <button  class="btn btn-outline-primary">Update</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-4 pull-lg-8 text-xs-center">
+          <img src="assets/user.jpg" class="m-x-auto img-fluid img-circle" alt="avatar">
+          <!-- <h6 class="m-l-2">Upload a different photo</h6> -->
+          <!-- <label class="custom-file">
+              <input type="file" id="file" class="custom-file-input">
+              <span class="custom-file-control">Choose file</span>
+          </label> -->
+      </div>
+  </div>
+</div>
+<hr>
