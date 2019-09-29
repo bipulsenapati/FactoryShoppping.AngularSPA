@@ -11,8 +11,7 @@ export class ShoppingCartService {
     const headers = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
-    return this.http.post(
-      'https://localhost:5001/api/Cart/addtobag/', cartItem, headers);
+    return this.http.post('https://localhost:5001/api/Cart/addtobag/', cartItem, headers);
   }
   public getCartListbyUserId(userId: number): Observable<any> {
     return this.http.get("https://localhost:5001/api/Cart/" + userId);

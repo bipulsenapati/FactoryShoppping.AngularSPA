@@ -15,7 +15,7 @@ export class AuthService {
     }
   }
   IsAdminLoggedIn() : boolean {
-    debugger
+  
     // tslint:disable-next-line: triple-equals
     if ( this.token != null && localStorage.getItem('role') == '1') {
 

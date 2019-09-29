@@ -13,7 +13,7 @@
                  <p class="card-text">{{product.description}}</p>
                    <div class="btn btn-group-lg" >
                       <!-- aria-label="Toolbar with button groups" -->
-                      <button type="button"  class="btn btn-outline-info">Add to Bag</button>&nbsp;
+                      <button type="button" (click)="addToCart(product)" class="btn btn-outline-info">Add to Bag</button>&nbsp;
                       <!-- <button mat-button (click)="openSnackBar('Party', 'act')">Show snack-bar</button> -->
                       <button type="button" class="btn btn-outline-info">Wishlist</button>
                   </div>

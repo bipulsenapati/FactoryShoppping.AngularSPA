@@ -3,11 +3,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../product.service";
 import { Product } from "../product.model";
 import { ShoppingCart } from "src/app/shared/shopping-cart.model";
-import { ShoppingCartComponent } from "src/app/shopping-cart/shopping-cart.component";
 import { Subject } from "rxjs";
-import { CartWrapperService } from "src/app/shared/cart-wrapper.service";
 import { ShoppingCartService } from "src/app/shopping-cart/shopping-cart.service";
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -63,7 +61,7 @@ export class ProductDetailsComponent implements OnInit {
     cart.productImage = product.imagePath;
     cart.UserId = +localStorage.getItem('userId');
     this._cartService.addItemToCart(cart).subscribe(
-      response => {
+      () => {
         this._snackBar.open('Item added to Cart Successfully', 'dismiss');
       },
       error => {

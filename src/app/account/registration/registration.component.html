@@ -102,9 +102,28 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary" type="submit">Register</button>
+          <button class="btn btn-primary" href="#myModal" data-toggle="modal" type="submit">Register</button>
         </form>
       </div>
     </div>
   </div>
+</div>
+
+
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#xE876;</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Great!</h4>
+				<p>Your account has been created successfully.</p>
+				<button class="btn btn-sm btn-success" id ="explore" [routerLink]="['**']" routerLinkActive="router-link-active"  data-dismiss="modal"><span>Start Exploring</span></button>
+			</div>
+		</div>
+	</div>
 </div>

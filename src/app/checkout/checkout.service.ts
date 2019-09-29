@@ -8,8 +8,9 @@ export class CheckoutService {
   constructor(private http: HttpClient) { }
 
   createAddress(address: any): Observable<any> {
-      const headers ={ headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }
-      return this.http.post('https://localhost:5001​/api​/Address', address, headers);
+    const headers = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.post('https://localhost:5001/api/Address_Checkout', address, headers);
     }
 }
+
 

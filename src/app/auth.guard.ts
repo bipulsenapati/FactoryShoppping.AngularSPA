@@ -19,8 +19,7 @@ export class AuthGuard implements CanActivate {
       const tokenPayload = decode(token);
 
       if (this._auth.onAuthenticate() ||  localStorage.getItem('role') === expectedRole) {
-        debugger
-        return true;
+         return true;
       } else if (this.accountService.loggedIn()) {
           return true;
         } else

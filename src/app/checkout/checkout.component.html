@@ -46,15 +46,22 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Full name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Full Name" [(ngModel)] ="model.AdName" required>
+                <input type="text" class="form-control" id="AdName"  name="AdName" placeholder="Full Name" [(ngModel)] ="model.AdName" required>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="AdMobile">Mobile</label>
+                <input type="number" class="form-control" id="AdMobile" name="AdMobile" placeholder="Current Mobile Number" [(ngModel)] ="model.AdMobile" required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
               </div>
             </div>
             <div class="mb-3">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="Houce no. Flat no. Place "[(ngModel)] ="model.Street" required>
+              <label for="Street">Address</label>
+              <input type="text" class="form-control" id="Street" name="Street" placeholder="Houce no. Flat no. Place "[(ngModel)] ="model.Street" required>
               <div class="invalid-feedback">
                 Please enter your shipping address.
               </div>
@@ -62,15 +69,15 @@
 
             <div class="row">
               <div class="col-md-5 mb-3">
-                <label for="country">City</label>
-                <input type="text" class="form-control" id="City" placeholder="City"  [(ngModel)] ="model.City" required>
+                <label for="City">City</label>
+                <input type="text" class="form-control" id="City" name="City" placeholder="City"  [(ngModel)] ="model.City" required>
                 <div class="invalid-feedback">
                   Please select a valid country.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <input type="text" class="form-control" id="state" placeholder="State" [(ngModel)] ="model.State"  required>
+                <label for="State">State</label>
+                <input type="text" class="form-control" id="State" name="State" placeholder="State" [(ngModel)] ="model.State"  required>
                 <!-- <select class="custom-select d-block w-100" id="state" required>
                   <option value="">Choose...</option>
                   <option>California</option>
@@ -80,13 +87,14 @@
                 </div>
               </div>
               <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control" id="zip" placeholder="PinCode" [(ngModel)] ="model.ZipCode" required>
+                <label for="ZipCode">Zip</label>
+                <input type="text" class="form-control" id="ZipCode" name="ZipCode" placeholder="PinCode" [(ngModel)] ="model.ZipCode" required>
                 <div class="invalid-feedback">
                   Zip code required.
                 </div>
               </div>
-              <button class="btn btn-primary btn-lg rounded-pill btn-block " type="submit">Save Address</button>
+              <input type="hidden" class="form-control" id="UserId" name="UserId" placeholder="UserId" [(ngModel)] ="model.UserId" required>
+              <button class="btn btn-outline-primary btn-lg rounded-pill btn-block " type="submit">Save Address</button>
           </div>
         </form>
             <hr class="mb-4">
@@ -142,9 +150,30 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg rounded-pill btn-block  " type="submit">Place Order</button>
+            <button class="btn btn-outline-primary btn-lg rounded-pill btn-block" href="#myModal" data-toggle="modal"  type="submit">Place Order</button>
           </form>
         </div>
       </div>
     </div>
+
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="icon-box">
+              <i class="material-icons"><i class="fa fa-check" aria-hidden="true"></i></i>
+            </div>
+            <h4 class="modal-title">Awesome!</h4>
+          </div>
+          <div class="modal-body">
+            <p class="text-center">Your booking has been confirmed.<br/> Check your email for to track Order details.</p>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 

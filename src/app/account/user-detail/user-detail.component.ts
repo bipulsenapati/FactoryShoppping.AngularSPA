@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AccountService } from '../account.service';
 import { NgForm } from '@angular/forms';
 import { Account } from '../account.model';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-detail',
@@ -12,7 +13,7 @@ import { Account } from '../account.model';
 export class UserDetailComponent implements OnInit {
 
   // tslint:disable-next-line: variable-name
-  constructor(private _route: ActivatedRoute, private _userdetails: AccountService) { }
+  constructor(private _route: ActivatedRoute, private _userdetails: AccountService, private _snackBar: MatSnackBar) { }
   id: any;
   userData: Account;
   public model : Account;
@@ -23,8 +24,8 @@ export class UserDetailComponent implements OnInit {
     let updatedUser = nf.value;
     updatedUser.UserId = this.id;
     this._userdetails.updateProfile(updatedUser).subscribe(response =>
-      console.log(response),
-       (response) => console.log(response.error.message));
+       this._snackBar.open('Your Details Updated Successfully', 'Dismiss'));
+      //  (response) => console.log(response.error.message));
 
   }
 

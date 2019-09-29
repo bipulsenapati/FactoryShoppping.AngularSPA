@@ -19,7 +19,7 @@ export class AccountComponent implements OnInit {
     this.model = new Account();
    }
 
-   
+
    login(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
@@ -38,13 +38,21 @@ export class AccountComponent implements OnInit {
         localStorage.setItem('token', resp.token);
         localStorage.setItem('role', resp.role);
         localStorage.setItem('userId', resp.userId);
+
+        if ( resp.role === 1 ){
+          this._snackBar.open('Welcome Admin.. Enjoy  Accessibility!!! 😊', 'Dismiss');
+        } else {
+          const x = resp.name;
+          this._snackBar.open('Enjoy Shopping with vela_engineer\'s Factory', 'Dismiss');
+
+        }
         this.router.navigate(['']);
       },
       err =>{
         // tslint:disable-next-line: triple-equals
         if(err.status == 400)
         {
-          console.log('Incorrect Username & Password','Authentication Failed');
+          this._snackBar.open('Kindly Check your email ID & Password', 'Dismiss');
         } else {
         console.log(err);
         }
