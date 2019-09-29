@@ -27,7 +27,8 @@ import { OrderComponent } from './order/order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 import { NotificationService } from './shared/pushnotification.service';
-import {MatButtonModule,MatSnackBarModule} from '@angular/material';
+import { MatButtonModule,MatSnackBarModule} from '@angular/material';
+import { CheckoutService } from './checkout/checkout.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,7 @@ import {MatButtonModule,MatSnackBarModule} from '@angular/material';
   ],
   providers: [ProductService, CategoryService, AccountService,
      AuthService, ShoppingCartService, CartWrapperService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-     JwtHelperService, NotificationService],
+     JwtHelperService, NotificationService, CheckoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

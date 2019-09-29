@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductService } from "../product.service";
 import { Product } from "../product.model";
-import { ShoppingCart } from "src/app/Shared/shopping-cart.model";
+import { ShoppingCart } from "src/app/shared/shopping-cart.model";
 import { ShoppingCartComponent } from "src/app/shopping-cart/shopping-cart.component";
 import { Subject } from "rxjs";
 import { CartWrapperService } from "src/app/shared/cart-wrapper.service";
@@ -54,13 +54,6 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-       duration: 10000,
-    });
-    console.log('clickkkkk....')
-  }
   addToCart(product: Product) {
     const cart = new ShoppingCart();
     cart.PId = product.pId;
@@ -71,11 +64,7 @@ export class ProductDetailsComponent implements OnInit {
     cart.UserId = +localStorage.getItem('userId');
     this._cartService.addItemToCart(cart).subscribe(
       response => {
-        console.log(response);
-        let config = new MatSnackBarConfig();
-        config.verticalPosition = 'top';
-        config.horizontalPosition = 'center';
-        this._snackBar.open('Item Added to Cart Successfully', 'Okay', config);
+        this._snackBar.open('Item added to Cart Successfully', 'dismiss');
       },
       error => {
         console.log(error);

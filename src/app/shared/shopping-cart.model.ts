@@ -15,4 +15,10 @@ export class Checkout{
   public subTotal: number;
   public cartTotal: number;
   public shipping: number;
+  public AdName: string;
+  public Street: string;
+  public ZipCode: number;
+  public City: string;
+  public State: string;
+  public AdMobile: number;
 }

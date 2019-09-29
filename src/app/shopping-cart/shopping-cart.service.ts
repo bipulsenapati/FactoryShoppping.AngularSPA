@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpHeaders, HttpClient } from "@angular/common/http";
-import { ShoppingCart } from "../Shared/shopping-cart.model";
+import { ShoppingCart } from "../shared/shopping-cart.model";
 
 @Injectable()
 export class ShoppingCartService {

@@ -19,7 +19,7 @@ export class ProductCreateComponent implements OnInit {
   createNewProduct(nf: NgForm) {
     this._prod.createProducts(nf.value)
     .subscribe(response =>
-      console.log(response),
+       console.log(response),
        (response) => console.log(response.error.message));
     this.router.navigate(['']);
   }

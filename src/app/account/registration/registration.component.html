@@ -16,7 +16,7 @@
                 <input type="text" name="FirstName"
                 [ngClass]="(FirstName.dirty || FirstName.touched) && FirstName.invalid ?'form-control is-invalid':'form-control'"
                   id="validationServer01" placeholder="First Name"
-                  aria-describedby="inputGroupPrepend3" [(ngModel)]="model.FirstName" #FirstName="ngModel" required>
+                  aria-describedby="inputGroupPrepend3" [(ngModel)]="model.firstName" #FirstName="ngModel" required>
                 <div class="invalid-tooltip error" *ngIf="(FirstName.dirty || FirstName.touched) && FirstName.invalid">
                   First Name is Required.
                 </div>
@@ -31,7 +31,7 @@
                 <input name="LastName" type="text"
                   [ngClass]="(LastName.dirty || LastName.touched) && LastName.invalid ?'form-control is-invalid':'form-control'"
                   id="lastName" placeholder="Last Name" aria-describedby="inputGroupPrepend3"
-                  [(ngModel)]="model.LastName" #LastName="ngModel" required>
+                  [(ngModel)]="model.lastName" #LastName="ngModel" required>
                 <div class="invalid-tooltip error" *ngIf="LastName.invalid && (LastName.dirty || LastName.touched)">
                   <div *ngIf="LastName?.errors.required">Last Name is Required.</div>
                 </div>
@@ -50,7 +50,7 @@
                 <input type="text"
                   [ngClass]="(Email.dirty || Email.touched) && Email.invalid ?'form-control is-invalid':'form-control '"
                   id="email" name="Email" placeholder="Email" aria-describedby="inputGroupPrepend3"
-                  [(ngModel)]="model.Email" #Email="ngModel" required>
+                  [(ngModel)]="model.email" #Email="ngModel" required>
                 <div class="invalid-tooltip error" *ngIf="Email.invalid && (Email.dirty || Email.touched)">
                   <div *ngIf="Email?.errors.required">Email is required.</div>
                   <div *ngIf="Email?.errors.email">Email must be a valid email address.</div>
@@ -66,7 +66,7 @@
                 <input type="password" name="Password"
                   [ngClass]="(Password.dirty || Password.touched) && Password.invalid ?'form-control is-invalid':'form-control'"
                   id="Password" placeholder="Password" aria-describedby="inputGroupPrepend3"
-                  [(ngModel)]="model.Password" #Password="ngModel" required>
+                  [(ngModel)]="model.password" #Password="ngModel" required>
 
                 <div class="invalid-tooltip error" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
                   <div *ngIf="Password?.errors.required">Password is required.</div>
@@ -85,7 +85,7 @@
                 </div>
                 <input type="text" name="Mobile"
                   [ngClass]="(Mobile.dirty || Mobile.touched) && Mobile.invalid ?'form-control is-invalid':'form-control '"
-                  id="Mobile" placeholder="Mobile" aria-describedby="inputGroupPrepend3" [(ngModel)]="model.Mobile"
+                  id="Mobile" placeholder="Mobile" aria-describedby="inputGroupPrepend3" [(ngModel)]="model.mobile"
                   #Mobile="ngModel" required>
               </div>
             </div>
@@ -97,7 +97,7 @@
                 </div>
                 <input type="text" name="Gender"
                   [ngClass]="(Gender.dirty || Gender.touched) && Gender.invalid ?'form-control is-invalid':'form-control'"
-                  id="Gender" placeholder="Gender" aria-describedby="inputGroupPrepend3" [(ngModel)]="model.Gender"
+                  id="Gender" placeholder="Gender" aria-describedby="inputGroupPrepend3" [(ngModel)]="model.gender"
                   #Gender="ngModel" required>
               </div>
             </div>

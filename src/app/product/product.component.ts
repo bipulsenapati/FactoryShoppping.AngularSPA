@@ -3,6 +3,7 @@ import { ProductService } from './product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { ProductDeleteComponent } from './product-delete/product-delete.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-product',
@@ -11,7 +12,8 @@ import { ProductDeleteComponent } from './product-delete/product-delete.componen
 })
 export class ProductComponent implements OnInit {
   // private _dlt: ProductDeleteComponent;
-  constructor(private _prod: ProductService, private route: Router, private _auth: AuthService, public routeer: ActivatedRoute, ) {
+  constructor(private _prod: ProductService, private route: Router,
+    private _snackBar: MatSnackBar ,private _auth: AuthService, public routeer: ActivatedRoute, ) {
 
     // this._dlt = new ProductDeleteComponent();
   }
@@ -21,6 +23,7 @@ export class ProductComponent implements OnInit {
   editProductDetail: any;
   categoryId: any;
   ngOnInit() {
+    this._snackBar.open('Item added to Cart Successfully', 'dismiss');
     this._prod.getProducts()
     .subscribe(
       res => {

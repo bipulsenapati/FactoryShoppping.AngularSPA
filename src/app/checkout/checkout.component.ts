@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NotificationService } from '../shared/pushnotification.service';
-import { Checkout } from '../Shared/shopping-cart.model';
+import { Checkout } from '../shared/shopping-cart.model';
 import { Subscription } from 'rxjs';
-import { summaryFileName } from '@angular/compiler/src/aot/util';
+import { CheckoutService } from './checkout.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -15,7 +15,7 @@ export class CheckoutComponent implements OnInit {
   public model: Checkout;
   data : any[] = [];
   public subData : any;
-  constructor(private notificationservice: NotificationService) {
+  constructor(private notificationservice: NotificationService, private checkoutService: CheckoutService) {
     this.subscriptions = [];
     // Todo you have to subscribe the subject defined iin cart checkout button
    }
@@ -34,6 +34,9 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-
-
+  saveAddress(nf: NgForm){
+    this.checkoutService.createAddress(nf.value).subscribe(resp =>{
+      console.log(resp);
+    });
+  }
 }
