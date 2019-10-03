@@ -85,10 +85,10 @@ export class ShoppingCartComponent implements OnInit {
         console.log(error);
       }
     );
-  }   // TODO Send checkout model using subject
+  }
 
-  redirectToCheckout(){
-    this.notificationservice.notifyOrderSummary(this.checkout);
+  redirectToCheckout() {
+    this.notificationservice.addItemToBasket(this.checkout);
     this.route.navigate(['checkout']);
   }
 }

@@ -45,12 +45,14 @@ export class ProductDetailsComponent implements OnInit {
 
   isUserAvailabe(): boolean {
     if( localStorage.getItem('token') != null) {
+      this.addToCart(this.product);
       return true;
     }  else {
       this.router.navigate(['login']);
       return false;
     }
   }
+
 
   addToCart(product: Product) {
     const cart = new ShoppingCart();

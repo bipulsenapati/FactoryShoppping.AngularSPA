@@ -9,5 +9,14 @@ export class Account {
   public profile_Image: string ;
   public gender: string;
   public RoleId: number ;
+}
 
+export class Address {
+public adName: string;
+public street: string;
+public zipCode: string;
+public city: string;
+public state: string;
+public adMobile: string;
+public addressId: number;
 }

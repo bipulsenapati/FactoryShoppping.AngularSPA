@@ -3,6 +3,7 @@ import { AccountService } from './account/account.service';
 import { Router } from '@angular/router';
 import { Product } from './product/product.model';
 import { CategoryService } from './product/category.service';
+import { AuthService } from 'angularx-social-login';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,9 +13,9 @@ export class AppComponent {
   title = 'FactoryShoppingfront';
   classApplied = false;
   categoryList: any;
- 
+
   // tslint:disable-next-line: variable-name
-  constructor(private _user: AccountService, private router: Router, public category: CategoryService) { }
+  constructor(private _user: AccountService, private authService: AuthService, private router: Router, public category: CategoryService) { }
 
   // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
@@ -43,6 +44,9 @@ export class AppComponent {
   signout() {
     this._user.logout();
   }
+  // signOutWithGoogle(): void {
+  //   this.authService.signOut();
+  // }
   onSubmit(){
     console.log()
   }

@@ -12,28 +12,22 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CheckoutComponent implements OnInit {
 
-  subscriptions: Subscription[];
-  public model: Checkout;
+  subscriptions: Subscription;
+  public model: Checkout = new Checkout();;
   data : any[] = [];
   public subData : any;
-  constructor(private notificationservice: NotificationService, private checkoutService: CheckoutService,private _snackBar: MatSnackBar) {
-    this.subscriptions = [];
-    // Todo you have to subscribe the subject defined in cart checkout button
-   }
+  constructor(private notificationservice: NotificationService,
+              private checkoutService: CheckoutService,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
-  this.model = new Checkout();
-  this.notificationservice.orderDetails.subscribe((action: Checkout) => {
-    this.model.subTotal = action.subTotal;
-    this.model.shipping = action.shipping;
-    this.model.cartTotal = action.cartTotal;
-    console.log(this.model);
-  });
+  this.subscriptions = this.notificationservice.addItemToBasket$.subscribe(
+    item => {
+      this.model = item;
+    });
   }
 
-  
-  saveAddress(nf: NgForm){
 
+  saveAddress(nf: NgForm){
     // tslint:disable-next-line: radix
     this.model.UserId = parseInt(localStorage.getItem('userId'));
     this.checkoutService.createAddress(nf.value).subscribe(resp =>{

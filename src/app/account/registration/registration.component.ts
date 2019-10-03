@@ -20,14 +20,11 @@ export class RegistrationComponent implements OnInit {
   {
     this._register.register(nf.value).subscribe( resp => {
         console.log(resp);
-        // this._snackBar.open('Registered Successfully', 'Dismiss');
+        this._snackBar.open('Registered Successfully', 'Dismiss');
        });
-    // this.router.navigate(['']);
+
   }
 
-  // signUpSucess(){
-  //   this._toastr.success('Registered Successfully', 'Toastr fun');
-  // }
   ngOnInit() {
     this.model = new Account();
   }

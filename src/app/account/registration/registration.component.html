@@ -70,6 +70,7 @@
 
                 <div class="invalid-tooltip error" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
                   <div *ngIf="Password?.errors.required">Password is required.</div>
+                  <div *ngIf="Password?.errors.password">Password must be 6 Character</div>
                 </div>
 
               </div>

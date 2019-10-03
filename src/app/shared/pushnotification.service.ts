@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { Checkout } from './shopping-cart.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-  orderDetails: Subject<any> = new Subject<any>();
   constructor() { }
+  private addItemToBasketSource = new BehaviorSubject<Checkout>(new Checkout());
+  addItemToBasket$ = this.addItemToBasketSource.asObservable();
 
-  notifyOrderSummary(actionName: any) {
-     debugger
-    this.orderDetails.next(actionName);
-}
+  addItemToBasket(item: Checkout) {
+    this.addItemToBasketSource.next(item);
+  }
 }

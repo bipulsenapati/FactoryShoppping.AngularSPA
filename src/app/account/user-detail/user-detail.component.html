@@ -10,44 +10,51 @@
               <li class="nav-item">
                   <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
               </li>
+
+              <li class="nav-item">
+                <a href="" data-target="#myaddress" data-toggle="tab" class="nav-link">Address</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="" data-target="#editaddress" data-toggle="tab" class="nav-link">Manage Address</a>
+              </li>
           </ul>
           <div class="tab-content p-b-3">
               <div class="tab-pane active" id="profile">
                   <div class="row">
-
                       <div class="col-md-12">
                           <h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> User Profile</h4>
-                          <table class="table table-hover table-striped" *ngFor= "let us of model">
+                          <table class="table table-hover table-striped">
                               <tbody>
                                   <tr>
                                       <td>
-                                         <b>First Name: &nbsp;{{us.firstName}}</b>
+                                         <b>First Name: &nbsp;{{model.firstName}}</b>
                                       </td>
                                   </tr>
                                   <tr>
                                       <td>
-                                          <b>Last Name: &nbsp;{{us.lastName}}</b>
+                                          <b>Last Name: &nbsp;{{model.lastName}}</b>
                                       </td>
 
                                   </tr>
                                   <tr>
                                       <td>
-                                          <b>Email:&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {{us.email}}</b>
+                                          <b>Email:&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {{model.email}}</b>
                                       </td>
                                   </tr>
                                   <tr>
                                       <td>
-                                          <b>Password:&nbsp;&nbsp; &nbsp;{{us.password}}</b>
+                                          <b>Password:&nbsp;&nbsp; &nbsp;{{model.password}}</b>
                                       </td>
                                   </tr>
                                   <tr>
                                       <td>
-                                          <b>Mobile:&nbsp; &nbsp; &nbsp; &nbsp; {{us.mobile}}</b>
+                                          <b>Mobile:&nbsp; &nbsp; &nbsp; &nbsp; {{model.mobile}}</b>
                                       </td>
                                   </tr>
                                   <tr>
                                       <td>
-                                          <b>Gender:&nbsp; &nbsp; &nbsp; &nbsp; {{us.gender}}</b>
+                                          <b>Gender:&nbsp; &nbsp; &nbsp; &nbsp; {{model.gender}}</b>
                                       </td>
                                   </tr>
                               </tbody>
@@ -59,41 +66,41 @@
 
               <div class="tab-pane" id="edit" >
                   <h4 class="m-y-2">Edit Profile</h4>
-                  <form role="form" (ngSubmit)="editUserDetails(us)" #us="ngForm" *ngFor="let m of model">
+                  <form role="form" (ngSubmit)="editUserDetails(us)" #us="ngForm">
                       <div class="form-group row">
                           <label class="col-lg-3 col-form-label form-control-label">First name</label>
                           <div class="col-lg-9">
-                              <input class="form-control" placeholder="First Name"  type="text" id="firstName" name="firstName" [(ngModel)] ="m.firstName">
+                              <input class="form-control" placeholder="First Name"  type="text" id="firstName" name="firstName" [(ngModel)] ="model.firstName">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                           <div class="col-lg-9">
-                              <input class="form-control" placeholder="Last Name"  type="text" id="lastName" name="lastName" [(ngModel)] ="m.lastName">
+                              <input class="form-control" placeholder="Last Name"  type="text" id="lastName" name="lastName" [(ngModel)] ="model.lastName">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="col-lg-3 col-form-label form-control-label">Email</label>
                           <div class="col-lg-9">
-                              <input class="form-control" placeholder="example_007@example.com"  type="email" id="email" name="email" [(ngModel)] ="m.email">
+                              <input class="form-control" placeholder="example_007@example.com"  type="email" id="email" name="email" [(ngModel)] ="model.email">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="col-lg-3 col-form-label form-control-label">Password</label>
                           <div class="col-lg-9">
-                              <input class="form-control" type="password"placeholder="Password"  id="password" name="password" [(ngModel)] ="m.password">
+                              <input class="form-control" type="password"placeholder="Password"  id="password" name="password" [(ngModel)] ="model.password">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="col-lg-3 col-form-label form-control-label">Mobile</label>
                           <div class="col-lg-9">
-                              <input class="form-control" type="number" placeholder="Mobile Number"  id="mobile" name="mobile" [(ngModel)] ="m.mobile">
+                              <input class="form-control" type="number" placeholder="Mobile Number"  id="mobile" name="mobile" [(ngModel)] ="model.mobile">
                           </div>
                       </div>
                       <div class="form-group row">
                           <label class="col-lg-3 col-form-label form-control-label">Gender</label>
                           <div class="col-lg-9">
-                              <input class="form-control" type="text" placeholder="Gender" id="gender" name="gender" [(ngModel)] ="m.gender">
+                              <input class="form-control" type="text" placeholder="Gender" id="gender" name="gender" [(ngModel)] ="model.gender">
                           </div>
                       </div>
                          <div class="form-group row">
@@ -105,6 +112,101 @@
                       </div>
                   </form>
               </div>
+
+              <div class="tab-pane" id="myaddress">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span>Your Address</h4>
+                        <table class="table table-hover table-striped" >
+                            <tbody >
+                                <tr>
+                                    <td>
+                                       <b>Full Name: &nbsp;{{amodel.adName}}</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Street: &nbsp;{{amodel.street}}</b>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>ZipCode:&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; {{amodel.zipCode}}</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>City:&nbsp;&nbsp; &nbsp;{{amodel.city}}</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>State:&nbsp; &nbsp; &nbsp; &nbsp; {{amodel.state}}</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Mobile:&nbsp; &nbsp; &nbsp; &nbsp; {{amodel.adMobile}}</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+
+
+            <div class="tab-pane" id="editaddress" >
+              <h4 class="m-y-2">Manage Address</h4>
+              <form role="form" (ngSubmit)="setAddress(us)" #us="ngForm" >
+                  <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Full Name</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" placeholder="First Name"  type="text" id="firstName" name="adName" [(ngModel)] ="amodel.adName">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Street</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" placeholder="Street-House no."  type="text" id="lastName" name="street" [(ngModel)] ="amodel.street">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">ZipCode</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" placeholder="zipcode"  type="number" id="zipCode" name="zipCode" [(ngModel)] ="amodel.zipCode">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">City</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="text"placeholder="City"  id="city" name="city" [(ngModel)] ="amodel.city">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">State</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" placeholder="State" id="state" name="state" [(ngModel)] ="amodel.state">
+                    </div>
+                </div>
+                  <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label">Mobile</label>
+                      <div class="col-lg-9">
+                          <input class="form-control" type="number" placeholder="Mobile Number"  id="adMobile" name="adMobile" [(ngModel)] ="amodel.adMobile">
+                      </div>
+                  </div>
+                     <div class="form-group row">
+                      <label class="col-lg-3 col-form-label form-control-label"></label>
+                      <div class="col-lg-9">
+                          <input type="reset" class="btn btn-outline-secondary" value="Cancel"> &nbsp;
+                          <button  class="btn btn-outline-primary">Update</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+
           </div>
       </div>
       <div class="col-lg-4 pull-lg-8 text-xs-center">

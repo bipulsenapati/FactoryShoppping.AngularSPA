@@ -17,17 +17,17 @@
               <div>
                 <h6 class="my-0">Sub Total:  </h6>
               </div>
-              <span class="mx-auto">{{model.subTotal}}</span>
+              <span class="mx-muted">{{model.subTotal | currency :"₹"}}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Shipping: </h6>
               </div>
-              <span class="text-muted">{{model.shipping}}</span>
+              <span class="text-muted">{{model.shipping | currency :"₹"}}</span>
             </li>
             <li class="list-group-item d-flex justify-content-between">
               <span>Billing Amount (INR): </span>
-              <strong>{{model.cartTotal}}</strong>
+              <strong>{{model.cartTotal | currency :"₹"}}</strong>
             </li>
           </ul>
 
@@ -100,7 +100,6 @@
             <hr class="mb-4">
             <form>
             <h4 class="font-weight-bolder text-primary mb-3">Payment</h4>
-
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
