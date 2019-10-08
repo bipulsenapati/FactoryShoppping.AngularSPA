@@ -11,6 +11,7 @@ import { ProductDeleteComponent } from './product/product-delete/product-delete.
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { UserDetailComponent } from './account/user-detail/user-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path : 'register', component: RegistrationComponent},
   { path : 'userdetails', component: UserDetailComponent},
   { path : 'checkout', component: CheckoutComponent},
+  { path : 'order', component: OrderComponent },
   { path : '**', component: ProductComponent},
   { path : ' ', component: ProductComponent},
 ];

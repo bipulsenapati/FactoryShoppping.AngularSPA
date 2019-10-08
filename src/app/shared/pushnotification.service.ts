@@ -10,7 +10,9 @@ export class NotificationService {
   private addItemToBasketSource = new BehaviorSubject<Checkout>(new Checkout());
   addItemToBasket$ = this.addItemToBasketSource.asObservable();
 
+
   addItemToBasket(item: Checkout) {
     this.addItemToBasketSource.next(item);
   }
+
 }

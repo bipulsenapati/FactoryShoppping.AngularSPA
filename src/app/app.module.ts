@@ -20,7 +20,6 @@ import { AuthService } from "./auth.service";
 import { ProductDeleteComponent } from "./product/product-delete/product-delete.component";
 import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
 import { ShoppingCartService } from "./shopping-cart/shopping-cart.service";
-import { CartWrapperService } from "./shared/cart-wrapper.service";
 import { UserDetailComponent } from "./account/user-detail/user-detail.component";
 import { OrderComponent } from "./order/order.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
@@ -74,7 +73,7 @@ export function provideConfig() {
     AccountService,
     AuthService,
     ShoppingCartService,
-    CartWrapperService,
+
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
     NotificationService,

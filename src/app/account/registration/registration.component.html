@@ -69,10 +69,9 @@
                   [(ngModel)]="model.password" #Password="ngModel" required>
 
                 <div class="invalid-tooltip error" *ngIf="Password.invalid && (Password.dirty || Password.touched)">
-                  <div *ngIf="Password?.errors.required">Password is required.</div>
-                  <div *ngIf="Password?.errors.password">Password must be 6 Character</div>
+                  <div *ngIf="Password?.errors.required">Password is required &  must be of 6 Character.</div>
+                  <!-- <div *ngIf="model.password.length>=6">Password must be 6 Character</div> -->
                 </div>
-
               </div>
             </div>
           </div>

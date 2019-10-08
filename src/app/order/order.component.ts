@@ -10,6 +10,7 @@ export class OrderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

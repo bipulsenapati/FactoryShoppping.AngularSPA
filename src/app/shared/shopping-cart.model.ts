@@ -7,7 +7,7 @@ export class ShoppingCart {
   public amount: number;
   public productName: string ;
   public productImage: string ;
-  public cartId :number;
+  public cartId: number;
 }
 
 export class Checkout{
@@ -22,3 +22,5 @@ export class Checkout{
   public State: string;
   public AdMobile: string;
 }
+
+

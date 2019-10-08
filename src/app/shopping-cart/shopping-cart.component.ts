@@ -5,14 +5,14 @@ import { Router } from "@angular/router";
 import { NotificationService } from '../shared/pushnotification.service';
 
 @Component({
-  selector: "app-shopping-cart",
-  templateUrl: "./shopping-cart.component.html",
-  styleUrls: ["./shopping-cart.component.css"]
+  selector: 'app-shopping-cart',
+  templateUrl: './shopping-cart.component.html',
+  styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
   userId: number;
   checkout: Checkout = new Checkout();
-  cartitem: ShoppingCart;
+  cartitem: ShoppingCart =new ShoppingCart();
   carts: ShoppingCart[] = [];
   itemsInCart = false;
 

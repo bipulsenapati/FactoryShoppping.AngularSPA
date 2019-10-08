@@ -19,7 +19,7 @@
               </div>
               <span class="mx-muted">{{model.subTotal | currency :"₹"}}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <li *ngIf= "model.subTotal <= 500" class="list-group-item d-flex justify-content-between lh-condensed">
               <div>
                 <h6 class="my-0">Shipping: </h6>
               </div>
@@ -149,7 +149,7 @@
               </div>
             </div>
             <hr class="mb-4">
-            <button class="btn btn-outline-primary btn-lg rounded-pill btn-block" href="#myModal" data-toggle="modal"  type="submit">Place Order</button>
+            <button class="btn btn-outline-primary btn-lg rounded-pill btn-block" (click)=" onClear()" href="#myModal" data-toggle="modal"  type="submit">Place Order</button>
           </form>
         </div>
       </div>

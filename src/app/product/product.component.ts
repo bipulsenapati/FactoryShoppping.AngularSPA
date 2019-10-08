@@ -57,7 +57,7 @@ export class ProductComponent implements OnInit {
   }
   onAdminAccess() {
     //if (this._auth.IsAdminLoggedIn() === true) {
-      if (localStorage.getItem('role') == '1') {
+      if (localStorage.getItem('role') === '1') {
       return true;
     } else {
       return false;
